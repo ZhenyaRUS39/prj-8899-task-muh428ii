@@ -1,53 +1,11 @@
-# Plan: prj-8899-task-muh428ii
+# Plan: Сделай скрипт для мониторинга Docker контейнеров
 
-**Project:** `docker-monitor`  
+**Project:** `PRJ-1465`  
 **Task ID:** `task-muh428ii`  
 **Repo:** `prj-8899-task-muh428ii`  
-
-## Summary
-
-Декомпозиция задачи мониторинга Docker-контейнеров: разбита на 4 этапа — структура репозитория, основной скрипт сбора метрик, алертинг и документация с тестами.
+**Progress:** 0/0 subtasks done
 
 ## Subtasks
-
-### 1. Инициализировать структуру репозитория
-
-- **ID:** `sub-1`
-- **Profile:** `20razrab1`
-- **Tester:** `TBD`
-- **Status:** `pending`
-- **Description:** Создать репозиторий prj-8899-task-muh428ii, добавить README.md, .gitignore, requirements.txt с зависимостями (docker, requests, pyyaml), базовую структуру каталогов (src/, tests/, config/).
-- **Test plan:** git clone проходит; requirements.txt валиден (pip install -r успешно); .gitignore исключает __pycache__ и .venv.
-
-### 2. Реализовать сборщик метрик Docker
-
-- **ID:** `sub-2`
-- **Profile:** `20razrab1`
-- **Tester:** `TBD`
-- **Status:** `pending`
-- **Description:** Написать docker_monitor.py: получает список запущенных контейнеров через docker SDK, собирает CPU%, MEM usage, сетевой I/O, статус (running/exited/restarting). Поддерживает вывод JSON и pretty-таблицы. Добавить CLI-аргументы (--format, --filter-name, --all).
-- **Test plan:** python docker_monitor.py --format json возвращает валидный JSON со списком контейнеров; --filter-name фильтрует корректно; на тестовом контейнере (nginx:alpine) значения CPU/MEM > 0.
-- **Dependencies:** `sub-1`
-
-### 3. Добавить алертинг и пороги
-
-- **ID:** `sub-3`
-- **Profile:** `30razrab2`
-- **Tester:** `TBD`
-- **Status:** `pending`
-- **Description:** Реализовать config.yaml с порогами (cpu_threshold, mem_threshold, restart_count). Скрипт умеет проверять контейнеры по порогам и выводить WARN/CRIT в stdout. Опционально webhook-уведомление (Slack/Discord) — флаг --webhook-url.
-- **Test plan:** С контейнером, превышающим порог CPU, скрипт выводит WARN-строку; с --webhook-url POST-запрос отправляется (проверка через mock-сервер).
-- **Dependencies:** `sub-2`
-
-### 4. Тесты и документация
-
-- **ID:** `sub-4`
-- **Profile:** `30razrab2`
-- **Tester:** `TBD`
-- **Status:** `pending`
-- **Description:** Написать pytest-тесты: unit (парсинг docker stats), integration (mock docker client). Обновить README с примерами запуска, описанием метрик, формата алертов и конфигурации.
-- **Test plan:** pytest -v проходит все тесты; README содержит секции Quickstart, Metrics, Alerts, Config; пример запуска воспроизводим на чистой машине.
-- **Dependencies:** `sub-3`
 
 
 ---
